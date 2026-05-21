@@ -20,6 +20,7 @@
   "license": "ISC",
   "description": "Backend API for Housewife Services Platform",
   "dependencies": {
+    "axios": "^1.16.1",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",
     "compression": "^1.8.1",
@@ -44,7 +45,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "axios": "^1.16.1",
     "jest": "^30.4.2",
     "jest-junit": "^17.0.0",
     "mongodb-memory-server": "^11.1.0",

@@ -1,0 +1,80 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.test
+
+# Dependencies
+node_modules/
+*.lock
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+out/
+.vite/
+.next/
+.nuxt/
+.cache/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.env.*.js
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+/coverage
+.nyc_output/
+/test-results/
+*.test.js
+jest.config.js
+playwright.config.js
+test-runner.js
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Local development
+.local/
+.venv/
+venv/
+env/
+
+# IDE cache
+.eslintcache
+.prettierignore
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history

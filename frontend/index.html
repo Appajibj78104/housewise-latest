@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark" class="dark-theme">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#FF6F61" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="HouseWise" />
+    <link rel="apple-touch-icon" href="/icons/icon.svg" />
+
+    <!-- SEO + OG Tags -->
+    <title>HouseWise Services - Professional Home Services at Your Doorstep</title>
+    <meta name="description" content="Find trusted home service providers - cooking, tailoring, tuition, cleaning, beauty & more. Book professional housewife services instantly." />
+    <meta name="keywords" content="home services, housewife services, cooking, tailoring, tuition, cleaning, beauty, India" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HouseWise Services - Professional Home Services" />
+    <meta property="og:description" content="Find trusted home service providers - cooking, tailoring, tuition, cleaning & more. Book instantly." />
+    <meta property="og:image" content="/icons/icon.svg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:url" content="https://housewise.in" />
+    <meta property="og:site_name" content="HouseWise Services" />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HouseWise Services - Professional Home Services" />
+    <meta name="twitter:description" content="Find trusted home service providers. Book professional services instantly." />
+    <meta name="twitter:image" content="/icons/icon.svg" />
+
+    <!-- Cache control meta tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "HouseWise Services",
+      "description": "Professional home services platform connecting customers with trusted housewife service providers for cooking, tailoring, tuition, cleaning, beauty & more.",
+      "url": "https://housewise.in",
+      "logo": "https://housewise.in/icons/icon-512x512.png",
+      "image": "https://housewise.in/icons/icon-512x512.png",
+      "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+      "priceRange": "₹₹",
+      "serviceType": ["Cooking", "Tailoring", "Tuition", "Cleaning", "Beauty", "Childcare", "Elderly Care", "Handicrafts"],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "500", "bestRating": "5" },
+      "sameAs": []
+    }
+    </script>
+  </head>
+  <body>
+    <script>
+      // Prevent flash: apply theme before render
+      (function() {
+        var t = localStorage.getItem('app-theme');
+        if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        var r = document.documentElement;
+        r.setAttribute('data-theme', t);
+        r.classList.add(t === 'light' ? 'light-theme' : 'dark-theme');
+        document.body && (document.body.style.backgroundColor = t === 'light' ? '#f8f9fc' : '#0f1117');
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

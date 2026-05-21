@@ -12,24 +12,22 @@ const logFormat = printf(({ level, message, timestamp, stack, ...meta }) => {
   return log;
 });
 
-// Create logger instance
-const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-  format: combine(
-    errors({ stack: true }),
-    timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    logFormat
-  ),
-  defaultMeta: { service: 'housewise-api' },
-  transports: [
-    // Console transport (always active)
-    new winston.transports.Console({
-      format: combine(
-        colorize(),
-        timestamp({ format: 'HH:mm:ss' }),
-        logFormat
-      ),
-    }),
+// Build transports array
+const transports = [
+  // Console transport (always active)
+  new winston.transports.Console({
+    format: combine(
+      colorize(),
+      timestamp({ format: 'HH:mm:ss' }),
+      logFormat
+    ),
+  }),
+];
+
+// Add file transports only in development/non-serverless environments
+// (Vercel/serverless environments don't allow persistent filesystem writes)
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  transports.push(
     // File transport for errors
     new winston.transports.File({
       filename: path.join(__dirname, '../logs/error.log'),
@@ -42,8 +40,20 @@ const logger = winston.createLogger({
       filename: path.join(__dirname, '../logs/combined.log'),
       maxsize: 5242880, // 5MB
       maxFiles: 5,
-    }),
-  ],
+    })
+  );
+}
+
+// Create logger instance
+const logger = winston.createLogger({
+  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
+  format: combine(
+    errors({ stack: true }),
+    timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    logFormat
+  ),
+  defaultMeta: { service: 'housewise-api' },
+  transports,
 });
 
 // Morgan stream for HTTP request logging
